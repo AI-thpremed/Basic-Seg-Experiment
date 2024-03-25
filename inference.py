@@ -108,44 +108,20 @@ def main():
 
         pred_mask.save(o_imgpath)
         """
-        # 创建一个空的3通道数组，用于存储颜色
         mask_rgb = np.zeros((prediction.shape[0], prediction.shape[1], 3), dtype=np.uint8)
 
-        # mask_0: 黑色，即 [0, 0, 0]
         mask_0 = (prediction == 0)
         mask_rgb[mask_0] = [0, 0, 0]
     
-        # mask_1: 红色，即 [255, 0, 0]
         mask_1 = (prediction == 1)
         mask_rgb[mask_1] = [255, 0, 0]
     
-        # mask_2: 蓝色，即 [0, 0, 255]
         mask_2 = (prediction == 2)
         mask_rgb[mask_2] = [0,  0,255]
     
-        # mask_3: 绿色，即 [0, 255, 0]
         mask_3 = (prediction == 3)
         mask_rgb[mask_3] = [0,  255,0]
 
-
-        # mask_4 = (prediction == 4)
-        # mask_rgb[mask_4] = [255,255,0]
-
-        
-        # mask_5 = (prediction == 5)
-        # mask_rgb[mask_5] = [255,  0,255]
-
-
-     # if label == "SRF":
-            #     color = (255, 0, 0)  # 蓝色
-            # elif label == "IRF":
-            #     color = (0, 255, 0)  # 绿色
-            # elif label == "PED":
-            #     color = (0, 0, 255)  # 红色
-            # elif label == "SHRM":
-            #     color = (255, 255, 0)  # 黄色
-            # elif label == "IS/OS":
-            #     color = (255, 0, 255)  # 品红色
 
 
         pred_mask = Image.fromarray(mask_rgb)
@@ -156,4 +132,3 @@ def main():
 if __name__ == '__main__':
     main()
 
-#结果要测出来，比如说我这个域适应，直接在整个数据集上跑出结果来，怎么找到对应的mask。 

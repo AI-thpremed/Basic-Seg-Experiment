@@ -110,7 +110,7 @@ if __name__=='__main__':
     # PARSE THE ARGS
     parser = argparse.ArgumentParser(description='PyTorch Training')
 
-    parser.add_argument('-c', '--config', default='config_drive.json',type=str,
+    parser.add_argument('-c', '--config', default='config.json',type=str,
                         help='Path to the config file (default: config.json)')
     parser.add_argument('-r', '--resume', default=None, type=str,
                         help='Path to the .pth model checkpoint to resume training')

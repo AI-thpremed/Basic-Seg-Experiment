@@ -46,8 +46,8 @@ def main(config, resume, modelpath):
     from collections import OrderedDict
     new_state_dict = OrderedDict()
     for k, v in state_dict.items():
-        name = k[7:] # remove `module.`，表面从第7个key值字符取到最后一个字符，正好去掉了module.
-        new_state_dict[name] = v #新字典的key值对应的value为一一对应的值。
+        name = k[7:]
+        new_state_dict[name] = v
     # load params
     model.load_state_dict(new_state_dict)
     print('load trained model from ', modelpath)
@@ -72,7 +72,7 @@ def main(config, resume, modelpath):
 if __name__=='__main__':
     # PARSE THE ARGS
     parser = argparse.ArgumentParser(description='PyTorch Training')
-    parser.add_argument('-c', '--config', default='./configs/config.json',type=str,
+    parser.add_argument('-c', '--config', default='/config.json',type=str,
                         help='Path to the config file (default: config.json)')
     parser.add_argument('-r', '--resume', default=None, type=str,
                         help='Path to the .pth model checkpoint to resume training')
